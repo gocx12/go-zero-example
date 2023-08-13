@@ -1,7 +1,5 @@
 syntax = "v1"
 
-import "./user.api"
-
 type User {
 	ID              int64  `json:"id"`                       // 用户id
 	Name            string `json:"name"`                     // 用户名称
