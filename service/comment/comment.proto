@@ -13,19 +13,18 @@ message CommentActionReq {
 }
 
 message CommentActionResp {
-  string status_msg = 1;// 返回状态描述
-  Comment comment = 2;  // 评论成功返回评论内容，不需要重新拉取整个列表
+  string status_msg = 1;    // 返回状态描述
+  Comment comment = 2;      // 评论成功返回评论内容，不需要重新拉取整个列表
 }
 
 message Comment {
-  int64 id = 1;         // 评论id
-  int64 user_id = 2;    // 评论用户id
-  string username = 3   // 评论用户名
+  int64 id = 1;             // 评论id
+  int64 user_id = 2;        // 评论用户id
+  string username = 3;      // 评论用户名
   string content = 4;       // 评论内容
   string create_date = 5;   // 评论发布日期，格式 mm-dd
 }
 
 service CommentService{
   rpc CommentAction (CommentActionReq) returns (CommentActionResp);
-  rpc CommentList (CommentListReq) returns (CommentListResp);
 }
