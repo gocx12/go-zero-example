@@ -1,7 +1,7 @@
 syntax = "v1"
 
-import "./core/login.api"
-import "./extra_first/comment_action.api"
+import "./login.api"
+import "./comment_action.api"
 
 @server (
 	prefix: /demo

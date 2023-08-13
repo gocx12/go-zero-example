@@ -1,6 +1,6 @@
 syntax = "v1"
 
-import "../comment.api"
+import "./comment.api"
 
 type CommentActionReq {
 	ActionType  int32 `form:"action_type"`           // 1-发布评论，2-删除评论
