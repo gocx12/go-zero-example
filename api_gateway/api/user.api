@@ -1,0 +1,11 @@
+syntax = "v1"
+
+import "../user.api"
+
+type User {
+	ID              int64  `json:"id"`                       // 用户id
+	Name            string `json:"name"`                     // 用户名称
+	Signature       string `json:"signature,optional"`       // 个人简介
+	TotalFavorited  string `json:"total_favorited,optional"` // 获赞数量
+	WorkCount       int64  `json:"work_count,optional"`      // 作品数
+}
