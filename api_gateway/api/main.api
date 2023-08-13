@@ -1,0 +1,22 @@
+syntax = "v1"
+
+import "./core/login.api"
+import "./extra_first/comment_action.api"
+
+@server (
+	prefix: /demo
+	group:  user
+)
+service service {
+	@handler Login
+	post /user/login (LoginReq) returns (LoginResp)
+}
+
+@server (
+	prefix: /demo
+	group:  comment
+)
+service service {
+	@handler CommentAction
+	get /comment/action (CommentActionReq) returns (CommentActionResp)
+}

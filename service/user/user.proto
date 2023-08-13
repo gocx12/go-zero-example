@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./user";
+
+message LoginReq {
+  string username = 1; // 注册用户名，最长32个字符
+  string password = 2; // 密码，最长32个字符
+}
+
+message LoginResp {
+  string status_msg = 1; // 返回状态描述
+  int64 user_id = 2; // 用户id
+}
+
+service UserService {
+  rpc Login (LoginReq) returns (LoginResp);
+}

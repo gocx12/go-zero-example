@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package comment;
+
+option go_package = "./comment";
+
+message CommentActionReq {
+  int64 user_id = 1;        // 操作评论的用户id
+  int64 post_id = 2;        // 帖子id
+  int32 action_type = 3;    // 1-发布评论，2-删除评论
+  string comment_text = 4;  // 用户填写的评论内容，在action_type=1的时候使用
+  int64 comment_id = 5;     // 要删除的评论id，在action_type=2的时候使用
+}
+
+message CommentActionResp {
+  string status_msg = 1;// 返回状态描述
+  Comment comment = 2;  // 评论成功返回评论内容，不需要重新拉取整个列表
+}
+
+message Comment {
+  int64 id = 1;         // 评论id
+  int64 user_id = 2;    // 评论用户id
+  string username = 3   // 评论用户名
+  string content = 4;       // 评论内容
+  string create_date = 5;   // 评论发布日期，格式 mm-dd
+}
+
+service CommentService{
+  rpc CommentAction (CommentActionReq) returns (CommentActionResp);
+  rpc CommentList (CommentListReq) returns (CommentListResp);
+}
